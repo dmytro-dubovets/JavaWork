@@ -15,9 +15,9 @@ public class Model {
         int firstNumber = 0;
         int secondNumber = 100;
         int attempts = 1;
-        int firstNextRangeNumber = 0;
-        int secondNextRangeNumber = 0;
-        int temp = 0;
+        int firstNextRangeNumber;
+        int secondNextRangeNumber;
+        int temp;
 
         System.out.printf("Guess the number from '%d' to '%d'", firstNumber, secondNumber);
         System.out.println();
@@ -29,6 +29,7 @@ public class Model {
             System.out.println("Enter the integer number!");
         }
         int next = scanner.nextInt();
+        listOfAllNumbers.add(next);
         while (next != randomNumber) {
             System.out.println("Try again!");
             numbers.add(next);
@@ -49,13 +50,15 @@ public class Model {
                     firstNumber = firstNextRangeNumber;
                     secondNumber = secondNextRangeNumber;
                     randomNumber = rand(firstNextRangeNumber, secondNextRangeNumber);
-                    System.out.println("--- You have new range! Be careful! ---");
+                    System.out.printf("--- You have new range from '%d' to '%d'! Be careful! ---", firstNextRangeNumber, secondNextRangeNumber);
+                    System.out.println();
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 }
             }
             attempts++;
             next = scanner.nextInt();
+            listOfAllNumbers.add(next);
         }
         System.out.println("You guessed!");
         System.out.println();
@@ -63,7 +66,8 @@ public class Model {
         System.out.println("- used attempts: " + attempts + ";");
         System.out.printf("- range was from '%d' to '%d';", firstNumber, secondNumber);
         System.out.println();
-        System.out.println("- random number was: " + randomNumber  + ".");
+        System.out.println("- random number was: " + randomNumber  + ";");
+        System.out.println("- entered numbers: " + listOfAllNumbers + ".");
     }
 
     public int rand() {
