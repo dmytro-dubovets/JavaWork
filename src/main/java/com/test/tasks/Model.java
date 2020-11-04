@@ -15,9 +15,7 @@ public class Model {
         int firstNumber = 0;
         int secondNumber = 100;
         int attempts = 1;
-        int firstNextRangeNumber;
-        int secondNextRangeNumber;
-        int temp;
+        int firstNextRangeNumber, secondNextRangeNumber, temp;
 
         System.out.printf("Guess the number from '%d' to '%d'", firstNumber, secondNumber);
         System.out.println();
